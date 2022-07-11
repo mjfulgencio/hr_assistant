@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+
+{% block employee_list %}<a href="{% url 'employee_list' %}" class="nav_link active"> <i class='bx bxs-news nav_icon'></i> <span class="nav_name">Employee</span> </a>{% endblock employee_list%}
+
+
+{% block content %}
+    <h1>Employee</h1>
+    <div class="row">
+        <div col-md>
+            <a href="{% url 'employee_form' %}" class="btn btn-outline-primary">Add Employee</a>
+            <div class="card card-body">
+                <table class="table table-borderless">
+                    <thead class="border-bottom font-weight-bold">
+                        <tr>
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for employee in employee_list %}
+                            <tr>
+                                <td>{{ employee.firstname }}</td>
+                                <td>{{ employee.lastname }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
